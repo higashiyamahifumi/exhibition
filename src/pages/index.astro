@@ -88,9 +88,7 @@ const exhibition = {
           </header>
 
           <div class="work-description">
-            <p>
-              作品説明
-            </p>
+            <p>作品説明</p>
           </div>
         </article>
 
@@ -514,9 +512,31 @@ const exhibition = {
   }
 
   .work-image img {
-    width: 100%;
     display: block;
-    aspect-ratio: 16/9;
+    width: 100%;
+    height: auto;
+  }
+
+  .work:first-child .work-image {
+    display: flex;
+    justify-content: center;
+    background: #e7e5df;
+  }
+
+  .work:first-child .work-image img {
+    width: auto;
+    max-width: 100%;
+    max-height: min(72svh, 760px);
+    object-fit: contain;
+  }
+
+  .work:last-child .work-image {
+    overflow: hidden;
+  }
+
+  .work:last-child .work-image img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
   }
 
