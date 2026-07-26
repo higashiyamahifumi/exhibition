@@ -62,6 +62,7 @@ const exhibition = {
         <p>
           すべて聴こえなくなって初めて、聴こえてくる声が、まだ私たちに残されているかもしれません。その果実こそ、落ちゆく葉が育てたものでないでしょうか。
         </p>
+        <p class="concept-author">文　青木駿</p>
       </div>
     </section>
 
@@ -73,21 +74,30 @@ const exhibition = {
 
       <div class="work-list">
         <article class="work">
+          <figure class="work-image">
+            <img src={`${base}/images/leaf.webp`} alt="言葉の彼方" loading="lazy" />
+          </figure>
           <header class="work-header">
             <h3>言葉の彼方</h3>
 
             <div class="work-meta">
               <p>青木駿・東山一二三</p>
               <p>2026</p>
+              <p>Fixed Media（Headphones）</p>
             </div>
           </header>
 
           <div class="work-description">
-            <p>作品説明準備中</p>
+            <p>
+              ヘッドホンを通して、一つの音風景に耳を澄ませる作品です。固定された音源は変化することなく流れ続けますが、その響きは、聴く人の身体や時間、周囲の気配とともに少しずつ姿を変えていきます。
+            </p>
           </div>
         </article>
 
         <article class="work">
+          <figure class="work-image">
+            <img src={`${base}/images/fuchi.webp`} alt="ふちつぎ、ふれた[あ]と" loading="lazy" />
+          </figure>
           <header class="work-header">
             <h3>ふちつぎ、ふれた[あ]と</h3>
 
@@ -489,4 +499,25 @@ const exhibition = {
       text-align: left;
     }
   }
+
+  .concept-author {
+    margin-top: 2.5rem;
+    text-align: right;
+    color: var(--color-muted);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+
+  .work-image {
+    grid-column: 1 / -1;
+    margin: 0 0 1.5rem;
+  }
+
+  .work-image img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+
 </style>
