@@ -4,7 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const exhibition = {
-  title: "展示タイトル未定",
+  title: "青木駿 / 東山一二三",
   year: "2026",
   venue: "石川県西田幾多郎記念哲学館 ホワイエ",
   dates: "2026年10月9日〜18日",
@@ -90,7 +90,9 @@ const exhibition = {
           <div class="work-description">
             <p>作品説明</p>
           </div>
-        </article>
+        
+<p><a href="https://www.instagram.com/higashiyamahifumi" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+</article>
 
         <article class="work">
           <figure class="work-image">
@@ -227,7 +229,12 @@ const exhibition = {
             <dt>入場料</dt>
             <dd>{exhibition.admission}</dd>
           </div>
-        </dl>
+        
+  <div>
+    <dt>公式サイト</dt>
+    <dd><a href="https://www.nishidatetsugakukan.org/mainmenu4.html" target="_blank" rel="noopener noreferrer">石川県西田幾多郎記念哲学館</a></dd>
+  </div>
+</dl>
       </div>
     </section>
   </main>
@@ -544,5 +551,14 @@ const exhibition = {
     aspect-ratio: 16 / 9;
     object-fit: cover;
   }
+
+
+a{
+  color:inherit;
+  text-decoration:underline;
+  text-decoration-color:rgba(0,0,0,.25);
+  text-underline-offset:.18em;
+}
+a:hover{ text-decoration-color:currentColor; }
 
 </style>
