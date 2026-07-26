@@ -281,7 +281,9 @@ const exhibition = {
 
   .hero {
     display: flex;
-    min-height: 78svh;
+    box-sizing: border-box;
+    height: 760px;
+    min-height: 760px;
     flex-direction: column;
     justify-content: space-between;
     padding-top: 26px;
@@ -301,17 +303,22 @@ const exhibition = {
 
   h1 {
     display: grid;
-    gap: 0.16em;
+    gap: 0.22em;
     font-family: var(--font-serif);
-    font-size: clamp(40px, 7vw, 78px);
+    font-size: clamp(40px, 6.8vw, 76px);
     font-weight: 400;
-    line-height: 1.16;
-    letter-spacing: -0.045em;
+    line-height: 1.12;
+    letter-spacing: -0.055em;
+  }
+
+  h1 > span:first-child {
+    white-space: nowrap;
   }
 
   .hero-title-en {
-    font-size: 0.48em;
-    letter-spacing: 0.08em;
+    font-size: 0.5em;
+    letter-spacing: 0.075em;
+    white-space: nowrap;
   }
 
   .concept,
@@ -526,11 +533,26 @@ const exhibition = {
 
   @media (max-width: 760px) {
     .hero {
-      min-height: 72svh;
+      height: 720px;
+      min-height: 720px;
+      padding-top: 28px;
+      padding-bottom: 34px;
+    }
+
+    .hero-title {
+      padding-block: 48px;
     }
 
     h1 {
-      font-size: clamp(36px, 11vw, 58px);
+      gap: 0.32em;
+      font-size: clamp(29px, 8.2vw, 36px);
+      line-height: 1.08;
+      letter-spacing: -0.075em;
+    }
+
+    .hero-title-en {
+      font-size: 0.72em;
+      letter-spacing: 0.07em;
     }
 
     .concept-text {
@@ -559,4 +581,20 @@ const exhibition = {
       width: min(72%, 280px);
     }
   }
+  @media (max-width: 390px) {
+    .hero {
+      height: 700px;
+      min-height: 700px;
+    }
+
+    h1 {
+      font-size: clamp(27px, 7.8vw, 31px);
+    }
+
+    .hero-top,
+    .hero-bottom {
+      font-size: 10.5px;
+    }
+  }
+
 </style>
