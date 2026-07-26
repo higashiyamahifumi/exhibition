@@ -4,37 +4,38 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const exhibition = {
-  title: "青木駿 / 東山一二三",
-  year: "2026",
-  venue: "石川県西田幾多郎記念哲学館 ホワイエ",
+  titleJa: "青木駿 / 東山一二三",
+  titleEn: "JOINT EXHIBITION",
+  venue: "石川県西田幾多郎記念哲学館",
+  room: "ホワイエ",
   dates: "2026年10月9日〜18日",
   hours: "9:00〜17:00（入館は16:30まで）",
   closed: "月曜日〈祝日の場合は翌平日〉",
   admission: "入場無料",
+  venueUrl: "https://www.nishidatetsugakukan.org/index.html",
 };
 ---
 
 <BaseLayout
-  title="青木駿 × 東山一二三 共同展示"
+  title="青木駿 / 東山一二三 JOINT EXHIBITION"
   description="青木駿と東山一二三による共同展示。2026年10月9日から18日まで、石川県西田幾多郎記念哲学館 ホワイエにて開催。"
 >
   <main id="main-content">
     <header class="hero">
       <div class="hero-top">
-        <p>Joint Exhibition</p>
-        <p>{exhibition.year}</p>
+        <p>{exhibition.dates}</p>
       </div>
 
       <div class="hero-title">
-        <h1>{exhibition.title}</h1>
+        <h1>
+          <span>{exhibition.titleJa}</span>
+          <span class="hero-title-en">{exhibition.titleEn}</span>
+        </h1>
       </div>
 
       <div class="hero-bottom">
-        <p>青木駿 / 東山一二三</p>
-
         <p>
-          {exhibition.dates}<br />
-          {exhibition.venue}<br />
+          {exhibition.venue} {exhibition.room}<br />
           {exhibition.admission}
         </p>
       </div>
@@ -62,6 +63,7 @@ const exhibition = {
         <p>
           すべて聴こえなくなって初めて、聴こえてくる声が、まだ私たちに残されているかもしれません。その果実こそ、落ちゆく葉が育てたものでないでしょうか。
         </p>
+
         <p class="concept-author">文　青木駿</p>
       </div>
     </section>
@@ -75,8 +77,13 @@ const exhibition = {
       <div class="work-list">
         <article class="work">
           <figure class="work-image">
-            <img src={`${base}/images/leaf.webp`} alt="ことばの彼方" loading="lazy" />
+            <img
+              src={`${base}/images/leaf.webp`}
+              alt="ことばの彼方"
+              loading="lazy"
+            />
           </figure>
+
           <header class="work-header">
             <h3>ことばの彼方</h3>
 
@@ -90,14 +97,17 @@ const exhibition = {
           <div class="work-description">
             <p>作品説明</p>
           </div>
-        
-<p><a href="https://www.instagram.com/higashiyamahifumi" target="_blank" rel="noopener noreferrer">Instagram</a></p>
-</article>
+        </article>
 
         <article class="work">
           <figure class="work-image">
-            <img src={`${base}/images/fuchi.webp`} alt="ふちつぎ、ふれた[あ]と" loading="lazy" />
+            <img
+              src={`${base}/images/fuchi.webp`}
+              alt="ふちつぎ、ふれた[あ]と"
+              loading="lazy"
+            />
           </figure>
+
           <header class="work-header">
             <h3>ふちつぎ、ふれた[あ]と</h3>
 
@@ -144,13 +154,10 @@ const exhibition = {
 
             <div class="artist-profile">
               <p>作曲家。</p>
-
               <p>石川県出身。</p>
-
               <p>
                 自身の演奏による即興表現、作編曲活動を行う。2018年度・武生国際音楽祭作曲奨学生。
               </p>
-
               <p>
                 様々なアーティストと交流する中で、音が持つ可能性を探求している。
               </p>
@@ -174,13 +181,20 @@ const exhibition = {
 
             <div class="artist-profile">
               <p>福島県出身。</p>
-
               <p>
                 コンピュータを用いた即興演奏やパフォーマンス、音響作品、サウンドインスタレーションを中心に活動。
               </p>
-
               <p>
                 機械的なプロセスと身体的な感覚のあわいのなかで、音の引力や気配を探っている。
+              </p>
+              <p class="artist-link">
+                <a
+                  href="https://www.instagram.com/higashiyamahifumi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Instagram
+                </a>
               </p>
             </div>
           </div>
@@ -196,15 +210,13 @@ const exhibition = {
 
       <div class="information-body">
         <div class="information-title">
-          <h3>{exhibition.title}</h3>
+          <h3>
+            <span>{exhibition.titleJa}</span>
+            <span class="information-title-en">{exhibition.titleEn}</span>
+          </h3>
         </div>
 
         <dl class="information-list">
-          <div>
-            <dt>出展作家</dt>
-            <dd>青木駿、東山一二三</dd>
-          </div>
-
           <div>
             <dt>会期</dt>
             <dd>{exhibition.dates}</dd>
@@ -212,7 +224,16 @@ const exhibition = {
 
           <div>
             <dt>会場</dt>
-            <dd>{exhibition.venue}</dd>
+            <dd>
+              <a
+                href={exhibition.venueUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {exhibition.venue}
+              </a>
+              <span> {exhibition.room}</span>
+            </dd>
           </div>
 
           <div>
@@ -229,21 +250,10 @@ const exhibition = {
             <dt>入場料</dt>
             <dd>{exhibition.admission}</dd>
           </div>
-        
-  <div>
-    <dt>公式サイト</dt>
-    <dd><a href="https://www.nishidatetsugakukan.org/mainmenu4.html" target="_blank" rel="noopener noreferrer">石川県西田幾多郎記念哲学館</a></dd>
-  </div>
-</dl>
+        </dl>
       </div>
     </section>
   </main>
-
-  <footer>
-    <p>青木駿 × 東山一二三</p>
-    <p>2026</p>
-    <p>石川県西田幾多郎記念哲学館</p>
-  </footer>
 </BaseLayout>
 
 <style>
@@ -251,12 +261,19 @@ const exhibition = {
     background: #f3f2ee;
   }
 
+  :global(body),
+  button,
+  input,
+  textarea,
+  select {
+    font-family: var(--font-serif);
+  }
+
   .hero,
   .concept,
   .works,
   .artists,
-  .information,
-  footer {
+  .information {
     width: min(100%, 920px);
     margin-inline: auto;
     padding-inline: var(--page-space);
@@ -273,17 +290,9 @@ const exhibition = {
 
   .hero-top,
   .hero-bottom {
-    display: flex;
-    justify-content: space-between;
-    gap: 28px;
     font-size: 11px;
     line-height: 1.75;
     letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .hero-bottom p:last-child {
-    text-align: right;
   }
 
   .hero-title {
@@ -291,11 +300,18 @@ const exhibition = {
   }
 
   h1 {
+    display: grid;
+    gap: 0.16em;
     font-family: var(--font-serif);
     font-size: clamp(40px, 7vw, 78px);
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.16;
     letter-spacing: -0.045em;
+  }
+
+  .hero-title-en {
+    font-size: 0.48em;
+    letter-spacing: 0.08em;
   }
 
   .concept,
@@ -332,6 +348,15 @@ const exhibition = {
     line-height: 2.25;
   }
 
+  .concept-author {
+    margin-top: 2.5rem;
+    text-align: right;
+    color: var(--color-muted);
+    font-size: 12.5px;
+    line-height: 1.8;
+    letter-spacing: 0.08em;
+  }
+
   .work-list {
     margin-top: clamp(46px, 6vw, 68px);
   }
@@ -342,6 +367,40 @@ const exhibition = {
     border-bottom: 1px solid var(--color-line);
     grid-template-columns: minmax(220px, 0.82fr) minmax(0, 1.18fr);
     gap: clamp(38px, 7vw, 82px);
+  }
+
+  .work-image {
+    grid-column: 1 / -1;
+    margin: 0 0 1.5rem;
+  }
+
+  .work-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .work:first-child .work-image {
+    display: flex;
+    justify-content: center;
+    background: #e7e5df;
+  }
+
+  .work:first-child .work-image img {
+    width: auto;
+    max-width: 100%;
+    max-height: min(72svh, 760px);
+    object-fit: contain;
+  }
+
+  .work:last-child .work-image {
+    overflow: hidden;
+  }
+
+  .work:last-child .work-image img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
   }
 
   .work-header h3 {
@@ -410,6 +469,10 @@ const exhibition = {
     line-height: 2;
   }
 
+  .artist-link {
+    margin-top: 0.35em;
+  }
+
   .information-body {
     display: grid;
     margin-top: clamp(48px, 7vw, 72px);
@@ -418,10 +481,17 @@ const exhibition = {
   }
 
   .information-title h3 {
+    display: grid;
+    gap: 0.35em;
     font-family: var(--font-serif);
     font-size: clamp(26px, 3.6vw, 40px);
     font-weight: 400;
-    line-height: 1.45;
+    line-height: 1.4;
+  }
+
+  .information-title-en {
+    font-size: 0.52em;
+    letter-spacing: 0.08em;
   }
 
   .information-list {
@@ -443,21 +513,15 @@ const exhibition = {
     color: var(--color-muted);
   }
 
-  footer {
-    display: grid;
-    padding-top: 26px;
-    padding-bottom: 26px;
-    border-top: 1px solid var(--color-line);
-    grid-template-columns: 1fr auto 1fr;
-    gap: 22px;
-    color: var(--color-muted);
-    font-size: 10.5px;
-    line-height: 1.7;
-    letter-spacing: 0.08em;
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0.25);
+    text-underline-offset: 0.18em;
   }
 
-  footer p:last-child {
-    text-align: right;
+  a:hover {
+    text-decoration-color: currentColor;
   }
 
   @media (max-width: 760px) {
@@ -465,12 +529,8 @@ const exhibition = {
       min-height: 72svh;
     }
 
-    .hero-bottom {
-      flex-direction: column;
-    }
-
-    .hero-bottom p:last-child {
-      text-align: left;
+    h1 {
+      font-size: clamp(36px, 11vw, 58px);
     }
 
     .concept-text {
@@ -498,67 +558,5 @@ const exhibition = {
     .artist-image {
       width: min(72%, 280px);
     }
-
-    footer {
-      grid-template-columns: 1fr;
-      gap: 7px;
-    }
-
-    footer p:last-child {
-      text-align: left;
-    }
   }
-
-  .concept-author {
-    margin-top: 2.5rem;
-    text-align: right;
-    color: var(--color-muted);
-    font-size: 12.5px;
-    line-height: 1.8;
-    letter-spacing: 0.08em;
-  }
-
-  .work-image {
-    grid-column: 1 / -1;
-    margin: 0 0 1.5rem;
-  }
-
-  .work-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
-  .work:first-child .work-image {
-    display: flex;
-    justify-content: center;
-    background: #e7e5df;
-  }
-
-  .work:first-child .work-image img {
-    width: auto;
-    max-width: 100%;
-    max-height: min(72svh, 760px);
-    object-fit: contain;
-  }
-
-  .work:last-child .work-image {
-    overflow: hidden;
-  }
-
-  .work:last-child .work-image img {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-  }
-
-
-a{
-  color:inherit;
-  text-decoration:underline;
-  text-decoration-color:rgba(0,0,0,.25);
-  text-underline-offset:.18em;
-}
-a:hover{ text-decoration-color:currentColor; }
-
 </style>
