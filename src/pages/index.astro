@@ -264,6 +264,22 @@ const exhibition = {
         </dl>
       </div>
     </section>
+
+
+    <section class="events">
+      <div class="section-heading">
+        <p>05</p>
+        <h2>関連イベント</h2>
+      </div>
+
+      <div class="events-body">
+        <h3>展示空間でのサウンドパフォーマンス</h3>
+        <p>10.10（土）13:00–13:30</p>
+        <p>10.18（日）13:00–13:30</p>
+        <p class="events-artist">青木駿・東山一二三</p>
+      </div>
+    </section>
+
   </main>
 </BaseLayout>
 
@@ -649,5 +665,35 @@ const exhibition = {
  .hero-date-large .range{font-size:1.65rem;}
  .hero-bottom{font-size:14px;line-height:1.8;}
 }
+
+
+  .events{
+    width:min(100%,920px);
+    margin-inline:auto;
+    padding-inline:var(--page-space);
+    padding-top:clamp(78px,11vw,124px);
+    padding-bottom:clamp(78px,11vw,124px);
+    border-top:1px solid var(--color-line);
+  }
+  .events-body{
+    margin-top:clamp(48px,7vw,72px);
+    display:grid;
+    gap:.7rem;
+    max-width:640px;
+    font-family:var(--font-serif);
+  }
+  .events-body h3{
+    margin:0 0 1rem;
+    font-size:clamp(22px,3vw,30px);
+    font-weight:400;
+  }
+  .events-body p{
+    margin:0;
+    font-size:15px;
+    line-height:1.9;
+  }
+  .events-artist{
+    margin-top:1.2rem !important;
+  }
 
 </style>
