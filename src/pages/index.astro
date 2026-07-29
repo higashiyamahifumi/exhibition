@@ -737,4 +737,50 @@ const exhibition = {
     }
   }
 
+
+  /* Final hero date sizing */
+  .hero-date {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    gap: 0.55em;
+    white-space: nowrap;
+  }
+
+  .hero-year {
+    flex: 0 0 auto;
+    font-size: 13px;
+    line-height: 1;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-range {
+    flex: 0 0 auto;
+    font-size: clamp(24px, 2.8vw, 34px);
+    line-height: 1;
+    letter-spacing: -0.025em;
+  }
+
+  .events-body h3 {
+    font-size: clamp(13px, 1.15vw, 16px);
+  }
+
+  @media (max-width: 760px) {
+    .hero-date {
+      gap: 0.45em;
+    }
+
+    .hero-year {
+      font-size: 10px;
+    }
+
+    .hero-range {
+      font-size: clamp(22px, 6.3vw, 28px);
+    }
+
+    .events-body h3 {
+      font-size: clamp(16px, 4.4vw, 19px);
+    }
+  }
+
 </style>
