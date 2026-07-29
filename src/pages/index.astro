@@ -274,9 +274,12 @@ const exhibition = {
 
       <div class="events-body">
         <h3>展示空間でのサウンドパフォーマンス</h3>
-        <p>10.10（土）13:00–13:30</p>
-        <p>10.18（日）13:00–13:30</p>
-        <p class="events-artist">青木駿・東山一二三</p>
+
+        <div class="events-details">
+          <p class="events-date">10.10（土）13:00–13:30</p>
+          <p class="events-date">10.18（日）13:00–13:30</p>
+          <p class="events-artist">青木駿・東山一二三</p>
+        </div>
       </div>
     </section>
 
@@ -300,7 +303,8 @@ const exhibition = {
   .concept,
   .works,
   .artists,
-  .information {
+  .information,
+  .events {
     width: min(100%, 920px);
     margin-inline: auto;
     padding-inline: var(--page-space);
@@ -371,7 +375,8 @@ const exhibition = {
   .concept,
   .works,
   .artists,
-  .information {
+  .information,
+  .events {
     padding-top: clamp(78px, 11vw, 124px);
     padding-bottom: clamp(78px, 11vw, 124px);
     border-top: 1px solid var(--color-line);
@@ -662,38 +667,53 @@ const exhibition = {
       font-size: 12.5px;
     }
   }
- .hero-date-large .range{font-size:1.65rem;}
- .hero-bottom{font-size:14px;line-height:1.8;}
-}
 
 
-  .events{
-    width:min(100%,920px);
-    margin-inline:auto;
-    padding-inline:var(--page-space);
-    padding-top:clamp(78px,11vw,124px);
-    padding-bottom:clamp(78px,11vw,124px);
-    border-top:1px solid var(--color-line);
+  .events-body {
+    display: grid;
+    margin-top: clamp(48px, 7vw, 72px);
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: clamp(42px, 7vw, 80px);
   }
-  .events-body{
-    margin-top:clamp(48px,7vw,72px);
-    display:grid;
-    gap:.7rem;
-    max-width:640px;
-    font-family:var(--font-serif);
+
+  .events-body h3 {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(25px, 3.3vw, 36px);
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: -0.025em;
   }
-  .events-body h3{
-    margin:0 0 1rem;
-    font-size:clamp(22px,3vw,30px);
-    font-weight:400;
+
+  .events-details {
+    display: grid;
+    align-content: start;
+    border-top: 1px solid var(--color-line);
   }
-  .events-body p{
-    margin:0;
-    font-size:15px;
-    line-height:1.9;
+
+  .events-date,
+  .events-artist {
+    display: grid;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-line);
+    grid-template-columns: 1fr;
+    font-size: 13px;
+    line-height: 1.85;
   }
-  .events-artist{
-    margin-top:1.2rem !important;
+
+  .events-artist {
+    color: var(--color-muted);
+  }
+
+  @media (max-width: 760px) {
+    .events-body {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .events-body h3 {
+      font-size: clamp(22px, 6.5vw, 29px);
+    }
   }
 
 </style>
