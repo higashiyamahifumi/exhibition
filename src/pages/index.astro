@@ -271,12 +271,6 @@ const exhibition = {
         <h2>関連イベント</h2>
       </div>
 
-      <div class="performance-info">
-        <h3>展示空間でのサウンドパフォーマンス</h3>
-        <p class="event-detail">10.10（土）13:00–13:30</p>
-        <p class="event-detail">10.18（日）13:00–13:30</p>
-      </div>
-
       <div class="towards-no-words">
         <h3>Towards No Words</h3>
         <div class="towards-event-info">
@@ -284,15 +278,22 @@ const exhibition = {
           <p class="event-detail">at <a href="https://www.bardolphin-kanazawa.com/index.html" target="_blank" rel="noopener noreferrer">Jazz &amp; Bar Dolphin</a></p>
         </div>
         <img
-          src="/exhibition/images/towardsnowords.jpg"
+          src={`${base}/images/towardsnowords.jpg`}
           alt="Towards No Words フライヤー"
           loading="lazy"
         />
+      </div>
+
+      <div class="performance-info">
+        <h3>展示空間でのサウンドパフォーマンス</h3>
+        <p class="event-detail">10.10（土）13:00–13:30</p>
+        <p class="event-detail">10.18（日）13:00–13:30</p>
       </div>
     </section>
 
   </main>
 </BaseLayout>
+
 
 <style>
   :global(body) {
@@ -318,6 +319,7 @@ const exhibition = {
     padding-inline: var(--page-space);
   }
 
+  /* Hero */
   .hero {
     display: grid;
     box-sizing: border-box;
@@ -337,6 +339,7 @@ const exhibition = {
   h1 {
     display: grid;
     gap: 0.2em;
+    margin: 0;
     font-family: var(--font-serif);
     font-size: clamp(34px, 5.6vw, 62px);
     font-weight: 400;
@@ -354,36 +357,39 @@ const exhibition = {
     white-space: nowrap;
   }
 
-  .hero-date {
-    display: grid;
-    gap: 7px;
+  .hero-date-large {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75em;
     width: fit-content;
     font-family: var(--font-serif);
+    white-space: nowrap;
   }
 
-  .hero-year {
+  .hero-date-large .year {
     font-size: 13px;
     line-height: 1;
     letter-spacing: 0.08em;
   }
 
-  .hero-range {
-    font-size: clamp(25px, 3.5vw, 36px);
+  .hero-date-large .range {
+    font-size: 1.65rem;
     line-height: 1;
-    letter-spacing: -0.035em;
-    white-space: nowrap;
+    letter-spacing: -0.025em;
   }
 
   .hero-bottom {
     font-size: 14px;
-    line-height: 1.85;
+    line-height: 1.8;
     letter-spacing: 0.07em;
   }
 
+  /* Shared sections */
   .concept,
   .works,
   .artists,
-  .information {
+  .information,
+  .related-event {
     padding-top: clamp(78px, 11vw, 124px);
     padding-bottom: clamp(78px, 11vw, 124px);
     border-top: 1px solid var(--color-line);
@@ -399,10 +405,16 @@ const exhibition = {
     letter-spacing: 0.1em;
   }
 
+  .section-heading p,
+  .section-heading h2 {
+    margin: 0;
+  }
+
   .section-heading h2 {
     font: inherit;
   }
 
+  /* Concept */
   .concept-text {
     display: grid;
     max-width: 680px;
@@ -414,8 +426,12 @@ const exhibition = {
     line-height: 2.25;
   }
 
+  .concept-text p {
+    margin: 0;
+  }
+
   .concept-author {
-    margin-top: 2.5rem;
+    margin-top: 2.5rem !important;
     text-align: right;
     color: var(--color-muted);
     font-size: 12.5px;
@@ -423,6 +439,7 @@ const exhibition = {
     letter-spacing: 0.08em;
   }
 
+  /* Works */
   .work-list {
     margin-top: clamp(46px, 6vw, 68px);
   }
@@ -433,6 +450,15 @@ const exhibition = {
     border-bottom: 1px solid var(--color-line);
     grid-template-columns: minmax(220px, 0.82fr) minmax(0, 1.18fr);
     gap: clamp(38px, 7vw, 82px);
+  }
+
+  .work:first-child {
+    padding-top: 0;
+  }
+
+  .work:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
   }
 
   .work-image {
@@ -470,6 +496,7 @@ const exhibition = {
   }
 
   .work-header h3 {
+    margin: 0;
     font-family: var(--font-serif);
     font-size: clamp(24px, 3.2vw, 36px);
     font-weight: 400;
@@ -486,6 +513,11 @@ const exhibition = {
     line-height: 1.8;
   }
 
+  .work-meta p,
+  .work-description p {
+    margin: 0;
+  }
+
   .work-description {
     display: grid;
     align-content: end;
@@ -496,6 +528,7 @@ const exhibition = {
     line-height: 2.1;
   }
 
+  /* Artists */
   .artist-list {
     display: grid;
     margin-top: clamp(48px, 7vw, 72px);
@@ -511,6 +544,7 @@ const exhibition = {
   }
 
   .artist-image img {
+    display: block;
     width: 100%;
     aspect-ratio: 4 / 5;
     object-fit: cover;
@@ -521,24 +555,31 @@ const exhibition = {
   }
 
   .artist-information h3 {
+    margin: 0;
     font-family: var(--font-serif);
-    font-size: clamp(28px, 3.6vw, 40px);
+    font-size: clamp(27px, 3.45vw, 38px);
     font-weight: 400;
     line-height: 1.3;
+    letter-spacing: -0.015em;
   }
 
   .artist-profile {
     display: grid;
-    margin-top: 26px;
-    gap: 1.15em;
-    font-size: 14px;
+    margin-top: 24px;
+    gap: 1.08em;
+    font-size: 13.5px;
     line-height: 2;
   }
 
-  .artist-link {
-    margin-top: 0.35em;
+  .artist-profile p {
+    margin: 0;
   }
 
+  .artist-link {
+    margin-top: 0.25em !important;
+  }
+
+  /* Information */
   .information-body {
     display: grid;
     margin-top: clamp(48px, 7vw, 72px);
@@ -549,10 +590,12 @@ const exhibition = {
   .information-title h3 {
     display: grid;
     gap: 0.35em;
+    margin: 0;
     font-family: var(--font-serif);
-    font-size: clamp(26px, 3.6vw, 40px);
+    font-size: clamp(25px, 3.4vw, 38px);
     font-weight: 400;
     line-height: 1.4;
+    letter-spacing: -0.015em;
   }
 
   .information-title-en {
@@ -575,248 +618,17 @@ const exhibition = {
     line-height: 1.85;
   }
 
+  .information-list dt,
+  .information-list dd {
+    margin: 0;
+  }
+
   dt {
     color: var(--color-muted);
   }
 
-  a {
-    color: inherit;
-    text-decoration: underline;
-    text-decoration-color: rgba(0, 0, 0, 0.25);
-    text-underline-offset: 0.18em;
-  }
-
-  a:hover {
-    text-decoration-color: currentColor;
-  }
-
-  @media (max-width: 760px) {
-    .hero {
-      height: 590px;
-      min-height: 590px;
-      align-content: center;
-      row-gap: 34px;
-      padding-top: 34px;
-      padding-bottom: 34px;
-    }
-
-    h1 {
-      gap: 0.28em;
-      font-size: clamp(25px, 6.8vw, 30px);
-      line-height: 1.08;
-      letter-spacing: -0.065em;
-    }
-
-    .hero-title-en {
-      font-size: 0.7em;
-      letter-spacing: 0.07em;
-    }
-
-    .hero-date {
-      gap: 6px;
-    }
-
-    .hero-year {
-      font-size: 11px;
-    }
-
-    .hero-range {
-      font-size: clamp(23px, 6.3vw, 28px);
-    }
-
-    .hero-bottom {
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    .concept-text {
-      margin-left: 0;
-    }
-
-    .work {
-      grid-template-columns: 1fr;
-      gap: 30px;
-    }
-
-    .work-description {
-      max-width: none;
-    }
-
-    .artist-list,
-    .information-body {
-      grid-template-columns: 1fr;
-    }
-
-    .artist-list {
-      gap: 74px;
-    }
-
-    .artist-image {
-      width: min(72%, 280px);
-    }
-  }
-  @media (max-width: 390px) {
-    .hero {
-      height: 560px;
-      min-height: 560px;
-      row-gap: 30px;
-    }
-
-    h1 {
-      font-size: clamp(23px, 6.5vw, 27px);
-    }
-
-    .hero-range {
-      font-size: clamp(21px, 6vw, 25px);
-    }
-
-    .hero-bottom {
-      font-size: 12.5px;
-    }
-  }
- .hero-date-large .range{font-size:1.65rem;}
- .hero-bottom{font-size:14px;line-height:1.8;}
-}
-
-
-  .related-event {
-    padding-top: 100px;
-    padding-bottom: 120px;
-  }
-
-  .related-event-body {
-    display: grid;
-    grid-template-columns: minmax(220px, 0.7fr) minmax(280px, 1fr);
-    gap: 72px;
-    align-items: start;
-  }
-
-  .related-event-text h3 {
-    margin: 0 0 24px;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.8;
-  }
-
-  .related-event-text p {
-    margin: 0;
-    font-size: 13px;
-    line-height: 2;
-  }
-
-  .related-event-flyer {
-    display: block;
-    width: 100%;
-    max-width: 560px;
-    height: auto;
-  }
-
-  @media (max-width: 760px) {
-    .related-event {
-      padding-top: 80px;
-      padding-bottom: 90px;
-    }
-
-    .related-event-body {
-      grid-template-columns: 1fr;
-      gap: 42px;
-    }
-
-    .related-event-flyer {
-      max-width: 100%;
-    }
-  }
-
-
+  /* Related events */
   .performance-info {
-    margin: 70px auto 0;
-    text-align: center;
-  }
-
-  .performance-info h3 {
-    margin: 0 0 28px;
-    font-size: 15px;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-  }
-
-  .performance-info p {
-    margin: 8px 0;
-    font-size: 14px;
-    line-height: 1.8;
-  }
-
-  .towards-no-words {
-    margin: 110px auto 0;
-    text-align: center;
-  }
-
-  .towards-no-words h3 {
-    margin: 0 0 42px;
-    font-size: 20px;
-    font-weight: 400;
-    letter-spacing: 0.06em;
-  }
-
-  .towards-no-words img {
-    display: block;
-    width: min(100%, 620px);
-    height: auto;
-    margin: 0 auto;
-  }
-
-  @media (max-width: 760px) {
-    .performance-info {
-      margin-top: 55px;
-    }
-
-    .towards-no-words {
-      margin-top: 85px;
-    }
-
-    .towards-no-words h3 {
-      margin-bottom: 30px;
-      font-size: 18px;
-    }
-
-    .towards-no-words img {
-      width: 100%;
-    }
-  }
-
-</style>
-
-<style>
-  /* Related event refinement */
-  .performance-info {
-    margin: 64px auto 0;
-    text-align: center;
-    font-family: var(--font-serif);
-  }
-
-  .performance-info h3 {
-    margin: 0 0 28px;
-    font-family: var(--font-serif);
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.85;
-    letter-spacing: 0;
-  }
-
-  .performance-info p {
-    margin: 0;
-    font-family: var(--font-serif);
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 2;
-    letter-spacing: 0;
-  }
-
-  .performance-info p + p {
-    margin-top: 8px;
-  }
-
-  .towards-no-words {
     position: relative;
     margin: 82px auto 0;
     padding-top: 82px;
@@ -824,7 +636,7 @@ const exhibition = {
     font-family: var(--font-serif);
   }
 
-  .towards-no-words::before {
+  .performance-info::before {
     content: "";
     position: absolute;
     top: 0;
@@ -833,41 +645,9 @@ const exhibition = {
     border-top: 1px solid var(--color-line);
   }
 
-  .towards-no-words h3 {
-    margin: 0 0 42px;
-    font-family: var(--font-serif);
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.85;
-    letter-spacing: 0;
-  }
-
-  .towards-no-words img {
-    display: block;
-    width: min(100%, 620px);
-    height: auto;
-    margin: 0 auto;
-  }
-
-  @media (max-width: 760px) {
-    .performance-info {
-      margin-top: 54px;
-    }
-
-    .towards-no-words {
-      margin-top: 64px;
-      padding-top: 64px;
-    }
-
-    .towards-no-words h3 {
-      margin-bottom: 32px;
-    }
-  }
-</style>
-
-<style>
   .performance-info h3,
   .towards-no-words h3 {
+    margin: 0;
     font-family: var(--font-serif);
     font-size: 15px;
     font-weight: 400;
@@ -875,33 +655,10 @@ const exhibition = {
     letter-spacing: 0;
   }
 
-  .towards-no-words h3 {
-    margin-bottom: 24px;
+  .performance-info h3 {
+    margin-bottom: 28px;
   }
 
-  .towards-event-info {
-    margin: 0 0 42px;
-    font-family: var(--font-serif);
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 2;
-    letter-spacing: 0;
-  }
-
-  @media (max-width: 760px) {
-    .performance-info h3,
-    .towards-no-words h3 {
-      font-size: 15px;
-    }
-
-    .towards-event-info {
-      margin-bottom: 32px;
-    }
-  }
-</style>
-
-<style>
-  /* Event date/details: identical typography */
   .performance-info .event-detail,
   .towards-no-words .event-detail {
     margin: 0;
@@ -920,21 +677,231 @@ const exhibition = {
     margin-top: 8px;
   }
 
+  .towards-no-words {
+    margin: 64px auto 0;
+    text-align: center;
+    font-family: var(--font-serif);
+  }
+
+  .towards-no-words h3 {
+    margin-bottom: 24px;
+  }
+
   .towards-event-info {
     margin: 0 0 42px;
     padding: 0;
     text-align: center;
   }
 
+  .towards-no-words img {
+    display: block;
+    width: min(100%, 620px);
+    height: auto;
+    margin: 0 auto;
+  }
+
+  /* Links */
+  a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0.25);
+    text-underline-offset: 0.18em;
+    text-decoration-thickness: 0.06em;
+  }
+
+  a:hover {
+    text-decoration-color: currentColor;
+  }
+
   @media (max-width: 760px) {
-    .performance-info .event-detail,
-    .towards-no-words .event-detail {
+    .hero {
+      height: 590px;
+      min-height: 590px;
+      row-gap: 34px;
+      padding-top: 34px;
+      padding-bottom: 34px;
+    }
+
+    h1 {
+      gap: 0.28em;
+      font-size: clamp(25px, 6.8vw, 30px);
+      line-height: 1.08;
+      letter-spacing: -0.06em;
+    }
+
+    .hero-title-en {
+      font-size: 0.68em;
+      letter-spacing: 0.07em;
+    }
+
+    .hero-date-large {
+      gap: 0.62em;
+    }
+
+    .hero-date-large .year {
+      font-size: 11px;
+    }
+
+    .hero-date-large .range {
+      font-size: clamp(21px, 5.8vw, 25px);
+    }
+
+    .hero-bottom {
+      font-size: 12.5px;
+      line-height: 1.8;
+      letter-spacing: 0.06em;
+    }
+
+    .concept,
+    .works,
+    .artists,
+    .information,
+    .related-event {
+      padding-top: 76px;
+      padding-bottom: 84px;
+    }
+
+    .concept-text {
+      margin-top: 42px;
+      margin-left: 0;
+      gap: 1.6em;
+      font-size: 13.5px;
+      line-height: 2.15;
+    }
+
+    .concept-author {
+      margin-top: 2rem !important;
+      font-size: 12px;
+    }
+
+    .work-list {
+      margin-top: 48px;
+    }
+
+    .work {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      padding: 52px 0;
+    }
+
+    .work:first-child {
+      padding-top: 0;
+    }
+
+    .work:last-child {
+      padding-bottom: 0;
+    }
+
+    .work-image {
+      margin-bottom: 0.75rem;
+    }
+
+    .work-header h3 {
+      font-size: clamp(22px, 6.2vw, 27px);
+      line-height: 1.42;
+    }
+
+    .work-meta {
+      margin-top: 16px;
+      font-size: 11.5px;
+    }
+
+    .work-description {
+      max-width: none;
+      gap: 1.35em;
       font-size: 13px;
-      line-height: 2;
+      line-height: 2.05;
+    }
+
+    .artist-list,
+    .information-body {
+      grid-template-columns: 1fr;
+    }
+
+    .artist-list {
+      margin-top: 50px;
+      gap: 70px;
+    }
+
+    .artist-image {
+      width: min(70%, 270px);
+    }
+
+    .artist-information {
+      padding-top: 18px;
+    }
+
+    .artist-information h3 {
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    .artist-profile {
+      margin-top: 21px;
+      gap: 1em;
+      font-size: 12.5px;
+      line-height: 1.95;
+    }
+
+    .information-body {
+      margin-top: 50px;
+      gap: 40px;
+    }
+
+    .information-title h3 {
+      font-size: 25px;
+    }
+
+    .information-list div {
+      grid-template-columns: 82px 1fr;
+      gap: 14px;
+      font-size: 11.5px;
+    }
+
+    .towards-no-words {
+      margin-top: 54px;
+    }
+
+    .performance-info {
+      margin-top: 64px;
+      padding-top: 64px;
+    }
+
+    .towards-no-words h3 {
+      margin-bottom: 24px;
     }
 
     .towards-event-info {
       margin-bottom: 32px;
+    }
+
+    .towards-no-words img {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 390px) {
+    .hero {
+      height: 560px;
+      min-height: 560px;
+      row-gap: 30px;
+    }
+
+    h1 {
+      font-size: clamp(23px, 6.5vw, 27px);
+    }
+
+    .hero-date-large .range {
+      font-size: clamp(20px, 5.7vw, 23px);
+    }
+
+    .artist-information h3 {
+      font-size: 21px;
+    }
+
+    .artist-profile {
+      font-size: 12px;
+      line-height: 1.95;
     }
   }
 </style>
