@@ -264,6 +264,33 @@ const exhibition = {
         </dl>
       </div>
     </section>
+
+    <section class="related-event">
+      <div class="section-heading">
+        <p>05</p>
+        <h2>関連イベント</h2>
+      </div>
+
+      <div class="performance-info">
+        <h3>展示空間でのサウンドパフォーマンス</h3>
+        <p class="event-detail">10.10（土）13:00–13:30</p>
+        <p class="event-detail">10.18（日）13:00–13:30</p>
+      </div>
+
+      <div class="towards-no-words">
+        <h3>Towards No Words</h3>
+        <div class="towards-event-info">
+          <p class="event-detail">10.9（金）20:00–</p>
+          <p class="event-detail">at <a href="https://www.bardolphin-kanazawa.com/index.html" target="_blank" rel="noopener noreferrer">Jazz &amp; Bar Dolphin</a></p>
+        </div>
+        <img
+          src={`${import.meta.env.BASE_URL}images/towardsnowords.jpg`}
+          alt="Towards No Words フライヤー"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
   </main>
 </BaseLayout>
 
@@ -284,7 +311,8 @@ const exhibition = {
   .concept,
   .works,
   .artists,
-  .information {
+  .information,
+  .related-event {
     width: min(100%, 920px);
     margin-inline: auto;
     padding-inline: var(--page-space);
@@ -650,4 +678,263 @@ const exhibition = {
  .hero-bottom{font-size:14px;line-height:1.8;}
 }
 
+
+  .related-event {
+    padding-top: 100px;
+    padding-bottom: 120px;
+  }
+
+  .related-event-body {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.7fr) minmax(280px, 1fr);
+    gap: 72px;
+    align-items: start;
+  }
+
+  .related-event-text h3 {
+    margin: 0 0 24px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.8;
+  }
+
+  .related-event-text p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 2;
+  }
+
+  .related-event-flyer {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+  }
+
+  @media (max-width: 760px) {
+    .related-event {
+      padding-top: 80px;
+      padding-bottom: 90px;
+    }
+
+    .related-event-body {
+      grid-template-columns: 1fr;
+      gap: 42px;
+    }
+
+    .related-event-flyer {
+      max-width: 100%;
+    }
+  }
+
+
+  .performance-info {
+    margin: 70px auto 0;
+    text-align: center;
+  }
+
+  .performance-info h3 {
+    margin: 0 0 28px;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+  }
+
+  .performance-info p {
+    margin: 8px 0;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .towards-no-words {
+    margin: 110px auto 0;
+    text-align: center;
+  }
+
+  .towards-no-words h3 {
+    margin: 0 0 42px;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+  }
+
+  .towards-no-words img {
+    display: block;
+    width: min(100%, 620px);
+    height: auto;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 760px) {
+    .performance-info {
+      margin-top: 55px;
+    }
+
+    .towards-no-words {
+      margin-top: 85px;
+    }
+
+    .towards-no-words h3 {
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    .towards-no-words img {
+      width: 100%;
+    }
+  }
+
+</style>
+
+<style>
+  /* Related event refinement */
+  .performance-info {
+    margin: 64px auto 0;
+    text-align: center;
+    font-family: var(--font-serif);
+  }
+
+  .performance-info h3 {
+    margin: 0 0 28px;
+    font-family: var(--font-serif);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.85;
+    letter-spacing: 0;
+  }
+
+  .performance-info p {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 2;
+    letter-spacing: 0;
+  }
+
+  .performance-info p + p {
+    margin-top: 8px;
+  }
+
+  .towards-no-words {
+    position: relative;
+    margin: 82px auto 0;
+    padding-top: 82px;
+    text-align: center;
+    font-family: var(--font-serif);
+  }
+
+  .towards-no-words::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .towards-no-words h3 {
+    margin: 0 0 42px;
+    font-family: var(--font-serif);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.85;
+    letter-spacing: 0;
+  }
+
+  .towards-no-words img {
+    display: block;
+    width: min(100%, 620px);
+    height: auto;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 760px) {
+    .performance-info {
+      margin-top: 54px;
+    }
+
+    .towards-no-words {
+      margin-top: 64px;
+      padding-top: 64px;
+    }
+
+    .towards-no-words h3 {
+      margin-bottom: 32px;
+    }
+  }
+</style>
+\n
+<style>
+  .performance-info h3,
+  .towards-no-words h3 {
+    font-family: var(--font-serif);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.85;
+    letter-spacing: 0;
+  }
+
+  .towards-no-words h3 {
+    margin-bottom: 24px;
+  }
+
+  .towards-event-info {
+    margin: 0 0 42px;
+    font-family: var(--font-serif);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 2;
+    letter-spacing: 0;
+  }
+
+  @media (max-width: 760px) {
+    .performance-info h3,
+    .towards-no-words h3 {
+      font-size: 15px;
+    }
+
+    .towards-event-info {
+      margin-bottom: 32px;
+    }
+  }
+</style>
+\n
+<style>
+  /* Event date/details: identical typography */
+  .performance-info .event-detail,
+  .towards-no-words .event-detail {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-serif);
+    font-size: 13px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 2;
+    letter-spacing: 0;
+    text-align: center;
+  }
+
+  .performance-info .event-detail + .event-detail,
+  .towards-no-words .event-detail + .event-detail {
+    margin-top: 8px;
+  }
+
+  .towards-event-info {
+    margin: 0 0 42px;
+    padding: 0;
+    text-align: center;
+  }
+
+  @media (max-width: 760px) {
+    .performance-info .event-detail,
+    .towards-no-words .event-detail {
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    .towards-event-info {
+      margin-bottom: 32px;
+    }
+  }
 </style>
