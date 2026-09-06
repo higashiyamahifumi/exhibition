@@ -1,0 +1,63 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: "ja" | "en";
+  image?: string;
+}
+
+const {
+  title = "青木 × 東山一二三 共同展示",
+  description = "青木と東山一二三による共同展示の特設サイト。",
+  lang = "ja",
+  image,
+} = Astro.props;
+
+const siteName = "青木 × 東山一二三 共同展示";
+const pageTitle = title === siteName ? title : `${title} | ${siteName}`;
+
+const baseUrl = import.meta.env.BASE_URL;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const faviconUrl = `${baseUrl}favicon.svg`;
+const socialImage = image
+  ? new URL(image, Astro.site)
+  : new URL(`${baseUrl}og-image.jpg`, Astro.site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href={faviconUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:image" content={socialImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+
+    <meta name="theme-color" content="#e9e8e2" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main-content">
+      本文へ移動
+    </a>
+
+    <slot />
+  </body>
+</html>
